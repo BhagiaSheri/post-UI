@@ -1,47 +1,30 @@
-import { useRef, useState } from "react";
 import Posts from "../../containers/Posts/Posts";
-
+import NewPost from "../../components/NewPost/NewPost";
+import {useState} from "react";
 
 function Dashboard() {
 
-    const [postsState, setPostsState] = useState(
-        [
-            { id: 201, title: "Happiness", content: "Happiness Book Content", author: "John" },
-            { id: 202, title: "MIU", content: "MIU Book Content", author: "Dean" },
-            { id: 203, title: "Enjoy Life", content: "Enjoy Life Book Content", author: "Jasmine" }
-        ]
-    );
+    const [showPostFlag, setShowPostFlag] = useState(false)
 
-    const [title, setTitle] = useState(postsState[0].title)
+    const [reloadPosts, setReloadPosts] = useState(0)
 
-    const handleChange = (event) => {
-        setTitle(event.target.value);
-      };
-    
-    const handleOnClick = () => {
-        const newPostsState = [...postsState];
-        newPostsState[0].title = title;
-        setPostsState(newPostsState);
-    };
+    const handleReloadPosts = () => {
+        setReloadPosts(reloadPosts + 1);
+    }
+
+    const newPostOnClickHandler = () => {
+        setShowPostFlag(!showPostFlag);
+    }
 
     return (
         <>
             <div className="App-header">
-                <Posts posts={postsState} />
+                <h1>DASHBOARD</h1>
+                <button onClick={newPostOnClickHandler}>{showPostFlag ? "HIDE" : "+ NEW POST"}</button>
+                {showPostFlag ? <NewPost handleReloadPosts={handleReloadPosts}/> : null}
+                <Posts reloadPosts={reloadPosts} handleReloadPosts={handleReloadPosts}/>
             </div>
 
-            <div>
-                <h3>CHANGE TITLE OF FIRST POST</h3>
-                <input
-                    key={postsState[0].id}
-                    type="text"
-                    label={'title'}
-                    name={'title'}
-                    value= {title}
-                    onChange={handleChange}
-                />
-                <button onClick={handleOnClick}>Update Title</button>
-            </div>
         </>
     )
 

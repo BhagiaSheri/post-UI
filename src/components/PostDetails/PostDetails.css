@@ -1,0 +1,29 @@
+.PostDetails {
+    background-color: lightcoral;
+    padding: 10px;
+}
+
+.PostDetails button {
+    color: darkred;
+    border: solid darkred;
+    padding: 10px;
+}
+
+.PostDetails button:hover {
+    background-color: darkred;
+    color: whitesmoke;
+    border: solid darkred;
+}
+
+.PostDetails .comment-btn{
+    margin-left: 10px;
+    color: #282c34;
+    border: solid  #282c34;
+}
+
+
+.PostDetails .comment-btn:hover{
+    background-color: #282c34;
+    border: solid  #282c34;
+    color: whitesmoke;
+}

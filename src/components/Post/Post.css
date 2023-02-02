@@ -1,6 +1,7 @@
-.Post{
+.Post {
     border: thick double #6cb6d3;
-    margin: 1%;
-    padding: 1%;
+}
 
+.Post:hover {
+    background-color: brown;
 }
