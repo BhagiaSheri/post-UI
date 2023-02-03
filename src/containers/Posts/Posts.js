@@ -13,10 +13,11 @@ function Posts(props) {
             .catch(error => console.log("Error while fetching posts, error = " + error.message))
     }
 
-    useEffect(fetchPosts, [props.reloadPosts])
+    useEffect(() => fetchPosts, [props.reloadPosts])
 
     const postComponents = postsState.map(p =>
-        <Post id={p.id} key={p.id} title={p.title} content={p.content} author={p.author} onClick={props.handleReloadPosts}/>
+        <Post id={p.id} key={p.id} title={p.title} content={p.content} author={p.author}
+              onClick={props.handleReloadPosts}/>
     )
 
     return (<>
