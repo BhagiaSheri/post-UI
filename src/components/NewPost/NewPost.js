@@ -2,9 +2,11 @@ import './NewPost.css'
 import {useRef} from "react";
 import axios from "axios";
 import {POSTS_URL} from "../../constants/post-service-endpoints";
+import {useNavigate} from "react-router";
 
-function NewPost(props) {
+function NewPost() {
 
+    const navigate = useNavigate();
     const newPostForm = useRef();
 
     const addPost = () => {
@@ -18,7 +20,7 @@ function NewPost(props) {
 
         axios.post(POSTS_URL, data)
             .then(() => {
-                props.handleReloadPosts();
+                navigate('/posts');
             })
             .catch(error => {
                 console.error('Error while creating new post, error=', error.message);

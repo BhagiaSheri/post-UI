@@ -2,8 +2,9 @@ import Post from "../../components/Post/Post"
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {POSTS_URL} from "../../constants/post-service-endpoints";
+import {Link} from "react-router-dom";
 
-function Posts(props) {
+function Posts() {
 
     const [postsState, setPostsState] = useState([]);
 
@@ -13,15 +14,15 @@ function Posts(props) {
             .catch(error => console.log("Error while fetching posts, error = " + error.message))
     }
 
-    useEffect(() => fetchPosts, [props.reloadPosts])
+    useEffect(() => fetchPosts, [])
 
     const postComponents = postsState.map(p =>
-        <Post id={p.id} key={p.id} title={p.title} content={p.content} author={p.author}
-              onClick={props.handleReloadPosts}/>
+        <Link to={`${p.id}`} key={p.id}>
+            <Post id={p.id} key={p.id} title={p.title} content={p.content} author={p.author}/>
+        </Link>
     )
 
     return (<>
-        <h3>POSTS</h3>
         {postComponents}
     </>)
 

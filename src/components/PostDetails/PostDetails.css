@@ -1,6 +1,6 @@
 .PostDetails {
     background-color: lightcoral;
-    padding: 10px;
+    padding: 10px 50px;
 }
 
 .PostDetails button {
@@ -15,15 +15,15 @@
     border: solid darkred;
 }
 
-.PostDetails .comment-btn{
+.PostDetails .comment-btn {
     margin-left: 10px;
     color: #282c34;
-    border: solid  #282c34;
+    border: solid #282c34;
 }
 
 
-.PostDetails .comment-btn:hover{
+.PostDetails .comment-btn:hover {
     background-color: #282c34;
-    border: solid  #282c34;
+    border: solid #282c34;
     color: whitesmoke;
 }

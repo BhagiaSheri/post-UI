@@ -1,17 +1,15 @@
 import './Comments.css'
-import React, {useContext, useEffect, useMemo, useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {POSTS_URL} from "../../constants/post-service-endpoints";
 import Comment from "../../components/Comment/Comment";
-import {SelectedPostContext} from "../../context/SelectedPost";
+import {useParams} from "react-router";
 
 function Comments() {
 
-   // console.log("RENDERED FROM COMMENT")
-
+    const params = useParams()
     const [commentsState, setCommentsState] = useState([]);
-    const {selectedPostId} = useContext(SelectedPostContext);
-    const postId = selectedPostId;
+    const postId = params.id;
 
     const fetchComments = () => {
         axios.get(`${POSTS_URL}/${postId}/comments`)

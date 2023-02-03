@@ -1,5 +1,8 @@
 .Post {
-    border: thick double #6cb6d3;
+    border: thick double lightcoral;
+    margin: 20px;
+    padding: 40px;
+    color: whitesmoke;
 }
 
 .Post:hover {
